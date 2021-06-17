@@ -25,11 +25,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="ProductivityTools.PublishToWordpress.ps1" />
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="ProductivityTools.PublishReadmeToWordpress.psd1" />
     <Compile Include="ProductivityTools.PublishReadmeToWordpress.psm1" />
-    <Compile Include="ProductivityTools.PublishReadmeToWordpress.tests.ps1" />
+    <Compile Include="Runner.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />
