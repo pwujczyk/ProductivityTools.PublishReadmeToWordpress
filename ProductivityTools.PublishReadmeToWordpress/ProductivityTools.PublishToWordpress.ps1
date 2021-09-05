@@ -78,6 +78,8 @@ function PublishToWordpress{
 		Write-Host $_
 		Write-Host "Document cannot have double quotes"
 		Write-Host "Document fails if you use D:\GitHub\ProductivityTools.ConnectionString\ to make it work use ``"
+		Write-Host "Document fails if you will write won't"
+
 		break
 	}
 }

@@ -229,6 +229,7 @@ function GetCategoryId{
    		"SQL" {7;break;}
 		"WinApp" {10;break;}
 		"Article" {11;break;}
+		"React" {12;break;}
 		
 	}
 	return $result;
@@ -359,7 +360,7 @@ function Publish-ReadmeToBlog{
 	
 	[cmdletbinding()]
 	param(
-		[string]$Directory,
+		[string]$Directory=$(Get-Location),
 		[string]$DestinationTempPath,
 		[string]$CdnImageAddress,
 		[bool]$PushImagesToAzure,
@@ -420,7 +421,7 @@ function Publish-ReadmesToBlog{
 
 	[cmdletbinding()]
 	param(
-		[string]$Directory,
+		[string]$Directory=$(Get-Location),
 		[string]$DestinationTempPath,
 		[string]$CdnImageAddress,
 		[bool]$PushImagesToAzure=$true

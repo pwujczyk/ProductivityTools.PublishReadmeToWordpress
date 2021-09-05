@@ -12,6 +12,6 @@ Clear-Host
 [string]$CdnImageAddress="http://cdn.productivitytools.tech/images/"
 
 #Publish-ReadmesToBlog $ReadmeMasterDirectory -DestinationTempPath $DestinationTempPath -CdnImageAddress $CdnImageAddress -PushImagesToAzure $true -verbose
-
-$Directory="d:\GitHub-3.PublishedToLinkedIn\ProductivityTools.InstallService\"
+Import-Module ProductivityTools.ConvertDocuments
+$Directory="d:\GitHub\ProductivityTools.CloudFolders\"
 Publish-ReadmeToBlog -Directory $Directory -DestinationTempPath $DestinationTempPath -CdnImageAddress $CdnImageAddress -PushImagesToAzure $true -verbose
