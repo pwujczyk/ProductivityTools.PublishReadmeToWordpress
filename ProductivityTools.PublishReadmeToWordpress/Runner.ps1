@@ -13,5 +13,5 @@ Clear-Host
 
 #Publish-ReadmesToBlog $ReadmeMasterDirectory -DestinationTempPath $DestinationTempPath -CdnImageAddress $CdnImageAddress -PushImagesToAzure $true -verbose
 Import-Module ProductivityTools.ConvertDocuments
-$Directory="d:\GitHub\ProductivityTools.Transfers\"
+$Directory="d:\GitHub\ProductivityTools.ConnectionStringLight\"
 Publish-ReadmeToBlog -Directory $Directory -DestinationTempPath $DestinationTempPath -CdnImageAddress $CdnImageAddress -PushImagesToAzure $true -verbose

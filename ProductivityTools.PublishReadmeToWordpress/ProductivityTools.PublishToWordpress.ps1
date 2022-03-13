@@ -59,11 +59,10 @@ function PublishToWordpress{
 	Write-Verbose "Welcome from PublishToWordpress"
 	[string]$Address= GetArticlePostUrl -Title $title -login $login -password $password
 
-	$Content2=$Content
-	
+	$Content2=$Content |Out-String
 	$params = @{
 	    title = $Title
-	    content = "$Content2" 	
+	    content = $Content2
 	    status = 'publish'
 	    categories=$Categories
 	    }
