@@ -12,5 +12,13 @@
 
 # Publish Readme to Wordpress
 
+Module takes readme (md) file converts it to html and publish on Wordpress. The main idea is to have the same content in github and on the blog.
 
 <!--more-->
+
+Parameters
+- Directory
+- DestinationTempPath
+- CdnImageAddress
+- PushImageToAzure
+- Verbose

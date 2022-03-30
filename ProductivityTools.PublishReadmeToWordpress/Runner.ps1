@@ -13,5 +13,5 @@ Clear-Host
 
 #Publish-ReadmesToBlog $ReadmeMasterDirectory -DestinationTempPath $DestinationTempPath -CdnImageAddress $CdnImageAddress -PushImagesToAzure $true -verbose
 Import-Module ProductivityTools.ConvertDocuments
-$Directory="d:\GitHub\productivitytools.learning.reactwithfirebaseauthwithdb\"
+$Directory="d:\GitHub\ProductivityTools.PublishReadmeToWordpress\"
 Publish-ReadmeToBlog -Directory $Directory -DestinationTempPath $DestinationTempPath -CdnImageAddress $CdnImageAddress -PushImagesToAzure $true -verbose
