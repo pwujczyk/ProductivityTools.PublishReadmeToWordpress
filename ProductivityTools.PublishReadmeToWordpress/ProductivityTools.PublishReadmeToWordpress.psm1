@@ -22,7 +22,8 @@ function ReplaceImageAddresses{
 	Write-Verbose "Readme path: $ReadmePath"
 	
 	$temDirectoryhObj=Get-Item $TempDirectory
-	$DestinationImageAddress=$CdnImageAddress + $temDirectoryhObj.Name+"/"
+	$tempDirectoryWithotuSpaces=$temDirectoryhObj.Name -replace ' ',"%20"
+	$DestinationImageAddress=$CdnImageAddress + $tempDirectoryWithotuSpaces+"/"
 	Write-Verbose "Destination image address: $DestinationImageAddress"
 	
 	$content=Get-Content -path $ReadmePath -Raw
