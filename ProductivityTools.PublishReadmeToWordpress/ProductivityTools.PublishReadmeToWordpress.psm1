@@ -384,6 +384,14 @@ function Publish-ReadmeToBlog{
 		$Password=Get-MasterConfiguration "WordpressPassword"
 	}
 
+	if($DestinationTempPath -eq "")
+	{
+		
+		$Folder=New-TemporaryDirectory
+		Write-Verbose "Temporary folder name $Folder"
+		$DestinationTempPath=$Folder;
+	}
+
 
 	
 	$tempDirectory=CopyMdFileToTempDirectory $Directory $DestinationTempPath

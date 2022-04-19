@@ -16,9 +16,15 @@ Module takes readme (md) file converts it to html and publish on Wordpress. The 
 
 <!--more-->
 
+Module exposes two functions - 
+- Publish-ReadmeToBlog - takes readme file from the given directory and pushes it to wordpress
+- Publish-ReadmesToBlog - Looks for a readme files inside subdirectories and invokes Publish-ReadmeToBlog for each 
+
 Parameters
-- Directory
-- DestinationTempPath
+- Directory - Directory where md file is located. If not provided current directory is used
+- DestinationTempPath - 
 - CdnImageAddress
 - PushImageToAzure
+- Login - Login to Wordpress page. Taken from [MasterConfiguration](http://productivitytools.tech/powershell-master-configuration/) if not provided
+- Password - Password to Wordpress page. Taken from [MasterConfiguration](http://productivitytools.tech/powershell-master-configuration/) if not provided
 - Verbose

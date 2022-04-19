@@ -1,5 +1,7 @@
 Clear-Host
 Set-Location $PSScriptRoot
+#Install-Module ProductivityTools.NewTemporaryDirectory
+
 Import-Module .\ProductivityTools.PublishReadmeToWordpress.psm1 -Force 
 
 
@@ -12,6 +14,7 @@ Clear-Host
 [string]$CdnImageAddress="http://cdn.productivitytools.tech/images/"
 
 #Publish-ReadmesToBlog $ReadmeMasterDirectory -DestinationTempPath $DestinationTempPath -CdnImageAddress $CdnImageAddress -PushImagesToAzure $true -verbose
-Import-Module ProductivityTools.ConvertDocuments
-$Directory="d:\GitHub\ProductivityTools.PublishReadmeToWordpress\"
-Publish-ReadmeToBlog -Directory $Directory -DestinationTempPath $DestinationTempPath -CdnImageAddress $CdnImageAddress -PushImagesToAzure $true -verbose
+#Import-Module ProductivityTools.ConvertDocuments
+$Directory="d:\GitHub\ProductivityTools.Articles\2022.04.19 - Deploy web app to azure\"
+#Publish-ReadmeToBlog -Directory $Directory -DestinationTempPath $DestinationTempPath -CdnImageAddress $CdnImageAddress -PushImagesToAzure $true -verbose
+Publish-ReadmeToBlog -Directory $Directory -CdnImageAddress $CdnImageAddress -PushImagesToAzure $true -verbose
