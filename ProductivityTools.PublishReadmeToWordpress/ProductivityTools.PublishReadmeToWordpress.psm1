@@ -234,6 +234,12 @@ function GetCategoryId{
 		"WinApp" {10;break;}
 		"Article" {11;break;}
 		"React" {12;break;}
+		"Azure" {13;break;}
+		"GCP" {14;break;}
+		"Firebase" {15;break;}
+		"Python" {16;break;}
+		"Example" {17;break;}
+		
 		
 	}
 	return $result;

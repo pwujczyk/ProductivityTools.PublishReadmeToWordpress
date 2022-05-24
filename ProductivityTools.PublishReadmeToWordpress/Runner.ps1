@@ -15,6 +15,9 @@ Clear-Host
 
 #Publish-ReadmesToBlog $ReadmeMasterDirectory -DestinationTempPath $DestinationTempPath -CdnImageAddress $CdnImageAddress -PushImagesToAzure $true -verbose
 #Import-Module ProductivityTools.ConvertDocuments
-$Directory="d:\GitHub\ProductivityTools.Articles\2022.04.19 - Deploy web app to azure\"
+#$Directory="d:\GitHub\ProductivityTools.Articles\2022.04.27 - Deploy Python App to CloudRun\"
+$Directory="d:\GitHub\ProductivityTools.Example.FirebaseAuthentication\"
+#$Directory="d:\GitHub\ProductivityTools.SQLServerColumnDescription\"
+
 #Publish-ReadmeToBlog -Directory $Directory -DestinationTempPath $DestinationTempPath -CdnImageAddress $CdnImageAddress -PushImagesToAzure $true -verbose
 Publish-ReadmeToBlog -Directory $Directory -CdnImageAddress $CdnImageAddress -PushImagesToAzure $true -verbose
