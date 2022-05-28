@@ -373,7 +373,7 @@ function Publish-ReadmeToBlog{
 		[string]$Directory=$(Get-Location),
 		[string]$DestinationTempPath,
 		[string]$CdnImageAddress,
-		[bool]$PushImagesToAzure,
+		[bool]$PushImagesToAzure=$true,
 		[string]$Login,
 		[String]$Password
 	)
@@ -389,6 +389,11 @@ function Publish-ReadmeToBlog{
 	if($Password -eq "")
 	{
 		$Password=Get-MasterConfiguration "WordpressPassword"
+	}
+
+	if($CdnImageAddress -eq $null -or $CdnImageAddress -eq "")
+	{
+		$CdnImageAddress=Get-MasterConfiguration "WordpressCdnImageAddress"
 	}
 
 	if($DestinationTempPath -eq "")
