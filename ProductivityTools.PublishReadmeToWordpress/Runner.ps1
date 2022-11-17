@@ -1,5 +1,7 @@
 Clear-Host
 Set-Location $PSScriptRoot
+#Install-Module ProductivityTools.NewTemporaryDirectory
+
 Import-Module .\ProductivityTools.PublishReadmeToWordpress.psm1 -Force 
 
 

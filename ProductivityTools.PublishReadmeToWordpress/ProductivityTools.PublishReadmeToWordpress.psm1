@@ -22,7 +22,8 @@ function ReplaceImageAddresses{
 	Write-Verbose "Readme path: $ReadmePath"
 	
 	$temDirectoryhObj=Get-Item $TempDirectory
-	$DestinationImageAddress=$CdnImageAddress + $temDirectoryhObj.Name+"/"
+	$tempDirectoryWithotuSpaces=$temDirectoryhObj.Name -replace ' ',"%20"
+	$DestinationImageAddress=$CdnImageAddress + $tempDirectoryWithotuSpaces+"/"
 	Write-Verbose "Destination image address: $DestinationImageAddress"
 	
 	$content=Get-Content -path $ReadmePath -Raw
@@ -189,10 +190,13 @@ function ConvertToHtml{
 	)
 	
 	Write-Verbose "Hello from ConvertToHtml"
-	Write-Verbose "Temp article full path: $articleTempFullName"
 	$readmeTempFullName=GetReadmePath $TempFullPath
-	ConvertFrom-Markdown -Path $readmeTempFullName -TargetFormat Html -OutputDirectory $TempFullPath -OutputFileName article.html -Verbose
+	#ConvertFrom-Markdown -Path $readmeTempFullName -TargetFormat Html -OutputDirectory $TempFullPath -OutputFileName article.html -Verbose
+	$markdownObject=ConvertFrom-Markdown -Path $readmeTempFullName
+	$targetFileName=Join-Path $TempFullPath "article.html"
+	$markdownObject.Html |Out-File $targetFileName
 	$articleTempFullName=GetArticlePath $TempFullPath
+	Write-Verbose "Temp article full path: $articleTempFullName"
 	return $articleTempFullName
 
 }
@@ -230,6 +234,12 @@ function GetCategoryId{
 		"WinApp" {10;break;}
 		"Article" {11;break;}
 		"React" {12;break;}
+		"Azure" {13;break;}
+		"GCP" {14;break;}
+		"Firebase" {15;break;}
+		"Python" {16;break;}
+		"Example" {17;break;}
+		
 		
 	}
 	return $result;
@@ -379,6 +389,14 @@ function Publish-ReadmeToBlog{
 	if($Password -eq "")
 	{
 		$Password=Get-MasterConfiguration "WordpressPassword"
+	}
+
+	if($DestinationTempPath -eq "")
+	{
+		
+		$Folder=New-TemporaryDirectory
+		Write-Verbose "Temporary folder name $Folder"
+		$DestinationTempPath=$Folder;
 	}
 
 
