@@ -4,7 +4,7 @@ Set-Location $PSScriptRoot
 
 Import-Module .\ProductivityTools.PublishReadmeToWordpress.psm1 -Force 
 
-
+Import-Module d:\GitHub\ProductivityTools.ConvertDocuments\ProductivityTools.ConvertDocuments\ProductivityTools.ConvertDocuments.psm1 -Force
 Clear-Host
 
 [string]$ReadmeMasterDirectory="d:\GitHub-3.PublishedToLinkedIn\"
@@ -16,6 +16,8 @@ Clear-Host
 #Publish-ReadmesToBlog $ReadmeMasterDirectory -DestinationTempPath $DestinationTempPath -CdnImageAddress $CdnImageAddress -PushImagesToAzure $true -verbose
 Import-Module ProductivityTools.ConvertDocuments
 $Directories=@(
+    "d:\GitHub\ProductivityTools.Articles\2022.04.27 - Deploy Python App to CloudRun\",
+    "d:\GitHub\ProductivityTools.Example.FirebaseAuthenticationKept\",
     "d:\GitHub\ProductivityTools.Example.GCP.SecretManager\",
     "d:\GitHub\ProductivityTools.Articles\2022.09.23 - Setup Wordpress\",
     "d:\GitHub\ProductivityTools.GetServiceDescription\",

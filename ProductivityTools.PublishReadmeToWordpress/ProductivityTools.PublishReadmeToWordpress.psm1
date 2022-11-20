@@ -191,10 +191,10 @@ function ConvertToHtml{
 	
 	Write-Verbose "Hello from ConvertToHtml"
 	$readmeTempFullName=GetReadmePath $TempFullPath
-	#ConvertFrom-Markdown -Path $readmeTempFullName -TargetFormat Html -OutputDirectory $TempFullPath -OutputFileName article.html -Verbose
-	$markdownObject=ConvertFrom-Markdown -Path $readmeTempFullName
+	ConvertFrom-Markdown -Path $readmeTempFullName -TargetFormat Html -OutputDirectory $TempFullPath -OutputFileName article.html -Verbose
+	#$markdownObject=ConvertFrom-Markdown -Path $readmeTempFullName
 	$targetFileName=Join-Path $TempFullPath "article.html"
-	$markdownObject.Html |Out-File $targetFileName
+	#$markdownObject.Html |Out-File $targetFileName
 	$articleTempFullName=GetArticlePath $TempFullPath
 	Write-Verbose "Temp article full path: $articleTempFullName"
 	return $articleTempFullName
