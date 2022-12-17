@@ -6,7 +6,7 @@ Write-Host "Push to blog/Update"
 Write-Host "Update picture on CDN"
 
 
-. $PSScriptRoot\ProductivityTools.PublishToWordpress.ps1
+&"$PSScriptRoot\ProductivityTools.PublishToWordpress.ps1"
 
 function ReplaceImageAddresses{
 

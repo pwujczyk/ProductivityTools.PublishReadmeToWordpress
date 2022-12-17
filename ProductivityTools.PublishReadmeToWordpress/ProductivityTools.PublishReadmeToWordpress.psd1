@@ -12,7 +12,7 @@
 RootModule = 'ProductivityTools.PublishReadmeToWordpress.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.0.1'
+ModuleVersion = '0.0.2'
 
 # ID used to uniquely identify this module
 GUID = 'ce102c7c-c62e-4373-bb61-b386562007ae'
