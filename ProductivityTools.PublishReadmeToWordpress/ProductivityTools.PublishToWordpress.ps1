@@ -30,7 +30,7 @@ function GetArticlePostUrl{
 	)
 	
 	$header=ApiHeader $login $password
-	$posts=Invoke-RestMethod -Method GET -Uri http://productivitytools.tech/wp-json/wp/v2/posts?per_page=100 -ContentType "application/json" -Headers $header 
+	$posts=Invoke-RestMethod -Method GET -Uri http://productivitytools.top/wp-json/wp/v2/posts?per_page=100 -ContentType "application/json" -Headers $header 
 	foreach($post in $posts){
 	
 		$siteTitle=$post.title.rendered
@@ -38,12 +38,12 @@ function GetArticlePostUrl{
 		if ($siteTitle -eq $Title)
 		{
 			$id=$post.Id
-			$urlId="http://productivitytools.tech/wp-json/wp/v2/posts/$id"
+			$urlId="http://productivitytools.top/wp-json/wp/v2/posts/$id"
 			return $urlId
 		}
 	}
 	#if no post return we are post to the general post it will create new post
-	return "http://productivitytools.tech/wp-json/wp/v2/posts"
+	return "http://productivitytools.top/wp-json/wp/v2/posts"
 }
 
 function PublishToWordpress{

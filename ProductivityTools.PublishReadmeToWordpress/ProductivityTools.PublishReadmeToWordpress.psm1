@@ -191,10 +191,10 @@ function ConvertToHtml{
 	
 	Write-Verbose "Hello from ConvertToHtml"
 	$readmeTempFullName=GetReadmePath $TempFullPath
-	#ConvertFrom-Markdown -Path $readmeTempFullName -TargetFormat Html -OutputDirectory $TempFullPath -OutputFileName article.html -Verbose
-	$markdownObject=ConvertFrom-Markdown -Path $readmeTempFullName
+	ConvertFrom-Markdown -Path $readmeTempFullName -TargetFormat Html -OutputDirectory $TempFullPath -OutputFileName article.html -Verbose
+	#$markdownObject=ConvertFrom-Markdown -Path $readmeTempFullName
 	$targetFileName=Join-Path $TempFullPath "article.html"
-	$markdownObject.Html |Out-File $targetFileName
+	#$markdownObject.Html |Out-File $targetFileName
 	$articleTempFullName=GetArticlePath $TempFullPath
 	Write-Verbose "Temp article full path: $articleTempFullName"
 	return $articleTempFullName
@@ -260,22 +260,22 @@ function InsertHeader{
 	
 	if ($PowershellGalleryUrl -ne '')
 	{
-		$header=$header+'<a title="Powershell Gallery" href="'+$PowershellGalleryUrl+'" target="_blank" rel="noopener noreferrer"><img src="http://cdn.productivitytools.tech/images/General/Powershell40px.png"></a>'		
+		$header=$header+'<a title="Powershell Gallery" href="'+$PowershellGalleryUrl+'" target="_blank" rel="noopener noreferrer"><img src="http://cdn.productivitytools.top/images/General/Powershell40px.png"></a>'		
 	}	
 	
 	if ($NugetUrl -ne '')
 	{
-		$header=$header+'<a title="Nuget" href="'+$NugetUrl+'" target="_blank" rel="noopener noreferrer"><img src="http://cdn.productivitytools.tech/images/General/Nuget40px.png"></a>'		
+		$header=$header+'<a title="Nuget" href="'+$NugetUrl+'" target="_blank" rel="noopener noreferrer"><img src="http://cdn.productivitytools.top/images/General/Nuget40px.png"></a>'		
 	}
 	
 	if ($MicrosoftStore -ne '')
 	{
-		$header=$header+'<a title="MicrosoftStore" href="'+$MicrosoftStore+'" target="_blank" rel="noopener noreferrer"><img src="http://cdn.productivitytools.tech/images/General/WindowsStore40px.png"></a>'	
+		$header=$header+'<a title="MicrosoftStore" href="'+$MicrosoftStore+'" target="_blank" rel="noopener noreferrer"><img src="http://cdn.productivitytools.top/images/General/WindowsStore40px.png"></a>'	
 	}
 	
 	if ($GithubUrl -ne '')
 	{
-		$header=$header+'<a title="Github" href="'+$GithubUrl+'" target="_blank" rel="noopener noreferrer"><img src="http://cdn.productivitytools.tech/images/General/Github40px.png"></a>'	
+		$header=$header+'<a title="Github" href="'+$GithubUrl+'" target="_blank" rel="noopener noreferrer"><img src="http://cdn.productivitytools.top/images/General/Github40px.png"></a>'	
 	}	
 	
 	$header=$header+'</div>'

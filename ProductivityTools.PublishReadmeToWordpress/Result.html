@@ -1,0 +1,19 @@
+<p>This is a simple python app which returns value from the Secret Manager and app is deployed as Google App Engine</p>
+<!--more-->
+<ul>
+<li>Hello under http://127.0.0.1:8080/Hello</li>
+<li>Secret under http://127.0.0.1:8080/Secret</li>
+</ul>
+<pre><code>gcloud app create --project banded-edge-363320
+gcloud app deploy</code></pre>
+<h2 id="tutorial">Tutorial</h2>
+<p><a href="https://cloud.google.com/secret-manager/docs/create-secret">Link</a> <a href="https://console.cloud.google.com/flows/enableapi?apiid=secretmanager.googleapis.com&amp;redirect=https://console.cloud.google.com&amp;_ga=2.84762201.1798303247.1663912530-522909522.1663443612">Enabble API</a> <img src="http://cdn.productivitytools.top/images/ProductivityTools.Example.GCP.SecretManager/2022-09-22-22-17-28.png" /></p>
+<pre><code>gcloud secrets list
+echo -n &quot;pwValue&quot; | gcloud secrets versions add pwsecret --data-file=-</code></pre>
+<p>If you face the error</p>
+<p>Add <strong>Secret Manager Secret Accessor</strong> for the App engine Service Account</p>
+<p>Copy Service account name</p>
+<p><img src="http://cdn.productivitytools.top/images/ProductivityTools.Example.GCP.SecretManager/2022-09-23-08-02-54.png" /></p>
+<p>Add it in the IAM</p>
+<p><img src="http://cdn.productivitytools.top/images/ProductivityTools.Example.GCP.SecretManager/2022-09-23-08-03-49.png" /></p>
+<p><img src="http://cdn.productivitytools.top/images/ProductivityTools.Example.GCP.SecretManager/2022-09-23-08-04-05.png" /></p>
