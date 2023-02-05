@@ -1,11 +1,13 @@
 Clear-Host
 Set-Location $PSScriptRoot
+Publish-ReadmeToBlog -Directory D:\GitHub\ProductivityTools.MasterConfiguration.Cmdlet\ -CdnImageAddress http://cdn.productivitytools.top/images/ -Verbose -PushImagesToAzure $true -DestinationTempPath d:\trash\article
+
 #Install-Module ProductivityTools.NewTemporaryDirectory
 
-Import-Module ProductivityTools.PublishReadmeToWordpress.psm1 -Force 
+#Import-Module ProductivityTools.PublishReadmeToWordpress.psm1 -Force 
 
-Import-Module d:\GitHub\ProductivityTools.ConvertDocuments\ProductivityTools.ConvertDocuments\ProductivityTools.ConvertDocuments.psm1 -Force
-Clear-Host
+#Import-Module d:\GitHub\ProductivityTools.ConvertDocuments\ProductivityTools.ConvertDocuments\ProductivityTools.ConvertDocuments.psm1 -Force
+#Clear-Host
 
 [string]$ReadmeMasterDirectory="d:\GitHub-3.PublishedToLinkedIn\"
 #[string]$ReadmeMasterDirectory="d:\GitHub-3.PublishedToLinkedIn\Test"

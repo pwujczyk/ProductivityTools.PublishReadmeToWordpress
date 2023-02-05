@@ -82,3 +82,5 @@ function PublishToWordpress{
 		break
 	}
 }
+
+Export-ModuleMember PublishToWordpress

@@ -6,7 +6,7 @@ Write-Host "Push to blog/Update"
 Write-Host "Update picture on CDN"
 
 
-&"$PSScriptRoot\ProductivityTools.PublishToWordpress.ps1"
+
 
 function ReplaceImageAddresses{
 
@@ -37,13 +37,17 @@ function GetURL{
 		[string]$TempDirectory,
 		[string]$Pattern
 	)
+
+	Write-Verbose "Hello from Get Url $Pattern"
 	
 	$ReadmePath=GetReadmePath -Path $TempDirectory
 	$content=Get-Content -path $ReadmePath
 	foreach($line in $content)
 	{
+		if($line -like "<!--more-->"){ return ''} #withut it it finds urls in whole document
 		if($line -like "*$Pattern*")
 		{
+			#write-verbose "$line"
 			$adressStart=$line.IndexOf('"')+1;
 			$addressEnd=$line.IndexOf('"',$adressStart)
 			
@@ -51,6 +55,7 @@ function GetURL{
 			return $address
 		}
 	}
+	Write-Verbose "By by from Get Url"
 	return ''
 }
 
@@ -191,7 +196,9 @@ function ConvertToHtml{
 	
 	Write-Verbose "Hello from ConvertToHtml"
 	$readmeTempFullName=GetReadmePath $TempFullPath
-	ConvertFrom-Markdown -Path $readmeTempFullName -TargetFormat Html -OutputDirectory $TempFullPath -OutputFileName article.html -Verbose
+	$html=(ConvertFrom-Markdown $readmeTempFullName).Html 
+	$html |out-file "$TempFullPath\article.html"
+	#ConvertFrom-Markdown -Path $readmeTempFullName -TargetFormat Html -OutputDirectory $TempFullPath -OutputFileName article.html -Verbose
 	#$markdownObject=ConvertFrom-Markdown -Path $readmeTempFullName
 	$targetFileName=Join-Path $TempFullPath "article.html"
 	#$markdownObject.Html |Out-File $targetFileName
@@ -294,6 +301,8 @@ function ReplaceHeader{
 		[string]$imagesFullPath,
 		[bool]$PushImagesToAzure
 	)
+
+	Write-Verbose "Hello from ReplaceHeader"
 	
 	$powershellGalleryUrl=GetURL -TempDirectory $tempDirectory -Pattern "www.powershellgallery.com"
 	$productivityToolsUrl=GetURL -TempDirectory $tempDirectory -Pattern "productivitytools.tech"
@@ -377,6 +386,9 @@ function Publish-ReadmeToBlog{
 		[string]$Login,
 		[String]$Password
 	)
+	Write-Verbose "Importing module"
+	Write-Verbose "$PSScriptRoot\ProductivityTools.PublishToWordpress.psm1"
+	import-module "$PSScriptRoot\ProductivityTools.PublishToWordpress.psm1" -verbose
 	
 	Write-Verbose "Hello from ProcessReadmeDirectory"
 	Write-Verbose "Directory analysed: $Directory"
@@ -405,7 +417,7 @@ function Publish-ReadmeToBlog{
 	}
 
 
-	
+	Write-Verbose "CopyMdFileToTempDirectory"
 	$tempDirectory=CopyMdFileToTempDirectory $Directory $DestinationTempPath
 	$imagesFullPath=Join-Path $Directory "Images"
 	ReplaceImagesToCdnPath $Directory $tempDirectory $imagesFullPath $CdnImageAddress
@@ -421,7 +433,8 @@ function Publish-ReadmeToBlog{
 	Write-Verbose "Path to temp article: $articleTempFullName"
 
 	$Content=Get-Content $articleTempFullName
-	PublishToWordpress -Title $title -Categories $CategoriesId -Content $Content -login $Login -password $Password
+	Write-Verbose "Invoking publish to Wordpress"
+	PublishToWordpress -Title $title -Categories $CategoriesId -Content $Content -login $Login -password $Password -verbose
 }
 
 function FindReadmeFiles{
@@ -458,3 +471,5 @@ function Publish-ReadmesToBlog{
 		#ProcessReadmeDirectory "D:\GitHub-3.PublishedToLinkedIn\ProductivityTools.PSImportExcelToSQL" $DestinationTempPath $CdnImageAddress $PushImagesToAzure
 	}
 }
+
+export-ModuleMember Publish-ReadmeToBlog
