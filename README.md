@@ -16,6 +16,13 @@ Module takes readme (md) file converts it to html and publish on Wordpress. The 
 
 <!--more-->
 
+Module pushes images to the azure blob storage
+**To use it AZ module needs to be isntalled, AZ module cannot be added as dependency as AZ is not allowed name and manifest doesn't pass validation**
+```
+Install-Module AZ
+Connect-AzAccount
+```
+
 Module exposes two functions - 
 - Publish-ReadmeToBlog - takes readme file from the given directory and pushes it to wordpress
 - Publish-ReadmesToBlog - Looks for a readme files inside subdirectories and invokes Publish-ReadmeToBlog for each 
