@@ -14,12 +14,12 @@ Clear-Host
 [string]$CdnImageAddress="http://cdn.productivitytools.top/images/"
 
 #Publish-ReadmesToBlog $ReadmeMasterDirectory -DestinationTempPath $DestinationTempPath -CdnImageAddress $CdnImageAddress -PushImagesToAzure $true -verbose
-<<<<<<< HEAD
+
 #Import-Module ProductivityTools.ConvertDocuments
 #$Directory="d:\GitHub\ProductivityTools.Articles\2022.04.27 - Deploy Python App to CloudRun\"
-$Directory="D:\GitHub\ProductivityTools.Example.GCP.SecretManager\"
+#$Directory="D:\GitHub\ProductivityTools.Example.GCP.SecretManager\"
 #$Directory="d:\GitHub\ProductivityTools.SQLServerColumnDescription\"
-=======
+
 Import-Module ProductivityTools.ConvertDocuments
 $Directories=@(
     "d:\GitHub\ProductivityTools.Articles\2022.04.27 - Deploy Python App to CloudRun\",
@@ -94,8 +94,6 @@ $Directories=@(
     "d:\GitHub\ProductivityTools.InstallModuleIfMissing\",
     "d:\GitHub\ProductivityTools.GetDateName\",
     "d:\GitHub\ProductivityTools.PSGetOneDriveDirectory\"
->>>>>>> 7ac98e23666c28f86b2e4914f768235875254829
-
 )
 foreach ($item in $Directories)
 {
