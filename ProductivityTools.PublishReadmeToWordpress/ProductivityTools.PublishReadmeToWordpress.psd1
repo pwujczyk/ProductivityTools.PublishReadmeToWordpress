@@ -12,7 +12,7 @@
 RootModule = 'ProductivityTools.PublishReadmeToWordpress.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.0.2'
+ModuleVersion = '0.0.5'
 
 # ID used to uniquely identify this module
 GUID = 'ce102c7c-c62e-4373-bb61-b386562007ae'
@@ -27,7 +27,7 @@ Description = 'It publishes Readme file to the wordpress'
 FunctionsToExport = 'Publish-ReadmeToBlog'
 
 # List of all files packaged with this module
-FileList = @('./ProductivityTools.PublishToWordpress.ps1')
+FileList = @('./ProductivityTools.PublishToWordpress.psm1')
 
 # Private data to pass to the module specified in RootModule/ModuleToProcess
 # PrivateData = ''

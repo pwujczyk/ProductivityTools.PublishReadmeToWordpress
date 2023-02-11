@@ -233,7 +233,7 @@ function GetCategoryId{
 		[string]$Category
 	)
 	
-	#http://productivitytools.tech/wp-json/wp/v2/categories
+	#http://productivitytools.top/wp-json/wp/v2/categories
 	$result=switch($Category){
    		"C#" {4; break;}
    		"Powershell" {3; break;}
@@ -246,6 +246,7 @@ function GetCategoryId{
 		"Firebase" {15;break;}
 		"Python" {16;break;}
 		"Example" {17;break;}
+		"GAS" {19;break;}
 		
 		
 	}
